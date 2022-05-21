@@ -9,16 +9,13 @@ namespace PlayerLibrary.Models
     public class PlayerModel
     {
         public string PlayerName { get; set; }
-        public List<string> ShipLocations { get; set; }
-        //public List<GridSpotModel> ShipLocations { get; set; }
-        //public List<GridSpotModel> ShotGrid { get; set; }
-        public int ShipCount = 5;
-        public List<string> AttemptedSpots { get; set; }
+        public List<GridSpotModel> ShipLocations { get; set; }
+        public List<GridSpotModel> ShotGrid { get; set; }
 
         public PlayerModel ()
         {
-            AttemptedSpots = new List<string>();
-            ShipLocations = new List<string>();
+            ShipLocations = new List<GridSpotModel>();
+            ShotGrid = new List<GridSpotModel>();
         }
     }
 }
