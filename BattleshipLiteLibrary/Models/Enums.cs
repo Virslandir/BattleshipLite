@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayerLibrary.Models
+namespace BattleshipLiteLibrary.Models
 {
-    public enum GridSpotStatus 
+    public enum GridSpotStatus
     {
         Empty,
         Ship,
