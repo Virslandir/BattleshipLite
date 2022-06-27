@@ -135,11 +135,6 @@ namespace BattleshipLiteLibrary
 
         public static (string row, string column) SplitShotIntoRowAndColumn(string shot)
         {
-            if (shot.Length != 2)
-            {
-                throw new ArgumentException("Invalid shot", "shot");
-            }
-
             string row = shot.Substring(0, 1).ToUpper();
             string column = shot.Substring(1, 1).ToUpper();
 
