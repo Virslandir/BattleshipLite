@@ -58,7 +58,7 @@ namespace BattleshipLiteUI
 
             do
             {
-                string shot = AskForShot(activePlayer);
+                string shot = AskForLocation(activePlayer, "please select your target location:");
                 ( row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
 
                 isValidShot = GameLogic.ValidateShot( activePlayer,row, column);
@@ -90,10 +90,19 @@ namespace BattleshipLiteUI
             
         }
 
-        private static string AskForShot(PlayerInfoModel player)
+        private static string AskForLocation(PlayerInfoModel player, string message)
         {
-            Console.WriteLine($"{player.UsersName} please select your target location: ");
-            string output = Console.ReadLine();
+            string output = "";
+            do
+            {
+                Console.WriteLine($"{player.UsersName}, {message}");
+                output = Console.ReadLine();
+
+                if (output.Length!=2)
+                {
+                    Console.WriteLine("A valid location has only 2 characters. Please try again.");
+                }
+            } while (output.Length!=2);
 
             return output;
         }
@@ -143,8 +152,7 @@ namespace BattleshipLiteUI
         {
             do
             {
-                Console.Write($"Where do you want to place your ship number {model.ShipLocations.Count + 1}: ");
-                string location = Console.ReadLine();
+                string location = AskForLocation(model, $"where do you want to place your ship number {model.ShipLocations.Count + 1}: ");
 
                 bool isValidLocation = GameLogic.PlaceShip(model, location);
 
@@ -175,8 +183,17 @@ namespace BattleshipLiteUI
 
         private static string AskForUsersName(string playerTitle)
         {
-            Console.WriteLine($"{playerTitle} please input your name:");
-            string output = Console.ReadLine();
+            string output = "";
+            do
+            {
+                Console.WriteLine($"{playerTitle} please input your name:");
+                output = Console.ReadLine();
+
+                if (String.IsNullOrEmpty(output))
+                {
+                    Console.WriteLine("Invalid name.");
+                }
+            } while (String.IsNullOrEmpty(output));
 
             return output;
 
