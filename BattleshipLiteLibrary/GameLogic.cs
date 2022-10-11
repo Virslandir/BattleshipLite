@@ -97,6 +97,12 @@ namespace BattleshipLiteLibrary
                 if (location.SpotLetter.ToUpper() == row && location.SpotNumber == column)
                 {
                     isValidLocation = false;
+                    // razlika ValidateShipLocation() i ValidateGridLocation() je:
+                    // 1) ne proveravaju istu listu - jedno je ShipLocations lista, drugo je ShotGrid lista
+                    // 2) bitnija razlika od prve:
+                        // rade kontra proveru!!!
+                        // Dakle, ako row i column inputi postoje u ShotGridu, metod vraca TRUE!
+                        // Suprotno tome, ako row i column inpute postoje u ShipLocationsu, metod vraca FALSE!!
                 }
             }
 

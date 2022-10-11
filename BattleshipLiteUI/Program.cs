@@ -75,11 +75,13 @@ namespace BattleshipLiteUI
             if (isAHit)
             {
                 Console.WriteLine("Congratulations, you have hit your opponents ship!");
+                Console.WriteLine("Press Enter to end your turn.");
                 Console.ReadLine();
             }
             else
             {
                 Console.WriteLine("That was a miss, better luck next time!");
+                Console.WriteLine("Press Enter to switch to end your turn.");
                 Console.ReadLine();
 
             }
